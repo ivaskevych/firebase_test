@@ -1,7 +1,3 @@
-// import config from '../config';
-//
-// const LOGIN_URL = config.login.host;
-
 const STORAGE_KEY = 'session';
 
 class Auth {
@@ -18,7 +14,7 @@ class Auth {
   }
 
   authenticate (username, password) {
-    return fetch(LOGIN_URL, {
+    return fetch('LOGIN_URL', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

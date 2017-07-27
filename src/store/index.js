@@ -5,7 +5,7 @@ import rootReducer from '../reducers';
 import history from '../history';
 import { routerMiddleware } from 'react-router-redux';
 
-const middleware = process.env.NODE_ENV === 'production' ? [routerMiddleware(history), thunk] : [routerMiddleware(history), thunk, createLogger()];
+const middleware = process.env.NODE_ENV === 'production' ? [routerMiddleware(history), thunk] : [routerMiddleware(history), thunk, createLogger({collapsed: true})];
 const enhancer = compose(applyMiddleware(...middleware));
 
 export default function configureStore(initialState) {
