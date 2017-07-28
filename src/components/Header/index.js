@@ -1,9 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import * as firebase from 'firebase';
 
-const Header = () => {
-  const renderLinks = firebase.auth().currentUser ?
+const Header = ({isAuthenticated}) => {
+  const renderLinks = isAuthenticated ?
         ( <ul>
             <li><NavLink exact activeClassName="active" to="/">Home Page</NavLink></li>
             <li><NavLink exact activeClassName="active" to="/login">Login Page</NavLink></li>
@@ -20,10 +20,20 @@ const Header = () => {
 
   return (
     <div>
-        Header component
-          { renderLinks }
+      { renderLinks }
     </div>
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  isAuthenticated: !!state.auth.email
+});
+//
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     getFeaturedPlaylists: () => dispatch(getFeaturedPlaylists())
+//   };
+// }
+//
+
+export default connect(mapStateToProps, null)(Header);

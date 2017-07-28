@@ -11,6 +11,7 @@ class DashboardPage extends PureComponent {
 
     this.rootRef = firebase.database().ref();
     this.postsRef = this.rootRef.child('posts');
+    this.userPostsRef = this.rootRef.child('user-posts');
   }
 
   componentDidMount() {
@@ -25,11 +26,20 @@ class DashboardPage extends PureComponent {
     this.postsRef.off();
   }
 
+  removePost(key, title) {
+    let confirmation = window.confirm("Delete post: '" + title + "' ?");
+    if(confirmation) {
+      this.postsRef.child(key).remove(() => console.log("Removed post: " + title));
+      this.userPostsRef.child(key).remove();
+    }
+  }
+
   renderPosts() {
     return Object.keys(this.state.posts).map(key =>
       <div key={ key }>
         <div>{ key }</div>
         <div>{ this.state.posts[key].title }</div>
+        <button onClick={ this.removePost.bind(this, key, this.state.posts[key].title) }>X</button>
       </div>
     )
   }

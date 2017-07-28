@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import * as firebase from 'firebase';
 
 export default function(ComposedComponent) {
   class Authenticate extends React.Component {
@@ -26,7 +25,7 @@ export default function(ComposedComponent) {
 
   function mapStateToProps(state) {
     return {
-      isAuthenticated: firebase.auth().currentUser //change to get value from state
+      isAuthenticated: !!state.auth.email
     };
   }
 
