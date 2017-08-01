@@ -29,8 +29,10 @@ class DashboardPage extends PureComponent {
   removePost(key, title) {
     let confirmation = window.confirm("Delete post: '" + title + "' ?");
     if(confirmation) {
-      this.postsRef.child(key).remove(() => console.log("Removed post: " + title));
-      this.userPostsRef.child(key).remove();
+      this.postsRef.child(key).remove(() => console.log("Removed post: " + title))
+        .catch(err => console.log(err));
+      this.userPostsRef.child(key).remove()
+        .catch(err => console.log(err));
     }
   }
 
@@ -39,6 +41,7 @@ class DashboardPage extends PureComponent {
       <div key={ key }>
         <div>{ key }</div>
         <div>{ this.state.posts[key].title }</div>
+        <div dangerouslySetInnerHTML={{ __html: this.state.posts[key].body }} />
         <button onClick={ this.removePost.bind(this, key, this.state.posts[key].title) }>X</button>
       </div>
     )

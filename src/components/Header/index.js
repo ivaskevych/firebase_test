@@ -8,6 +8,7 @@ const Header = ({isAuthenticated}) => {
             <li><NavLink exact activeClassName="active" to="/">Home Page</NavLink></li>
             <li><NavLink exact activeClassName="active" to="/login">Login Page</NavLink></li>
             <li><NavLink exact activeClassName="active" to="/dashboard">Dashboard(protected route)</NavLink></li>
+            <li><NavLink exact activeClassName="active" to="/add-post">Add Post(protected route)</NavLink></li>
         </ul>
         )
         :
