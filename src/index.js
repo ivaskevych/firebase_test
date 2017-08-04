@@ -4,6 +4,7 @@ import * as firebase from 'firebase';
 
 import Root from './containers/root';
 import configureStore from './store';
+import './styles.css';
 
 const config = {
     apiKey: "AIzaSyC-Lu90dyHgXlsFMDCg5B5iApgWFIPgGf0",

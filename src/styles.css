@@ -1,0 +1,36 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+#root {
+  height: 100%; }
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
+
+.navigation {
+  flex-shrink: 0; }
+  .navigation ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 16px;
+    margin: 0;
+    background: azure; }
+    .navigation ul a {
+      text-decoration: none;
+      color: #424242; }
+      .navigation ul a:hover {
+        color: #9E9E9E; }
+
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  border: 3px solid #ccc;
+  overflow: auto; }

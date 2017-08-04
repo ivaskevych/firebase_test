@@ -9,6 +9,7 @@ class LoginPage extends PureComponent {
     if (firebase.auth().currentUser) {
       // [START signout]
       firebase.auth().signOut();
+      this.props.history.push('/');
       // [END signout]
     } else {
       let email = document.getElementById('email').value;
@@ -35,6 +36,7 @@ class LoginPage extends PureComponent {
         }
         console.log(error);
       });
+       this.props.history.push('/');
     }
   }
 

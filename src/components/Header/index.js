@@ -20,7 +20,7 @@ const Header = ({isAuthenticated}) => {
         )
 
   return (
-    <div>
+    <div className="navigation">
       { renderLinks }
     </div>
   );
